@@ -33,7 +33,7 @@
 
 // Set up nRF24L01 radio on SPI bus plus pins 9 & 10
 
-RF24 radio(9,10);
+RF24 radio(7,8);
 
 int Thermister(int RawADC) {  //Function to perform the fancy math of the Steinhart-Hart equation
  double Temp;
@@ -156,7 +156,7 @@ void setup(void)
   // and sends the pong back on the sending node's specific listening pipe.
   if ( role == role_pong_back )
   {
-//    radio.openReadingPipe(1,talking_pipes[0]);
+    radio.openReadingPipe(1,talking_pipes[0]);
     radio.openReadingPipe(2,talking_pipes[1]);
     radio.openReadingPipe(3,talking_pipes[2]);
     radio.openReadingPipe(4,talking_pipes[3]);
